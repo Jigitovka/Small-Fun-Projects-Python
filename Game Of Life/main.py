@@ -13,9 +13,9 @@ def render(board_param) -> None:
         print(row_str)
 
 if __name__ == "__main__":
-    brd = Board(3, 3)
+    brd = Board(90, 90)
     render(brd.assign_random_state())
     print("Delimiter here!")
     render(brd.next_board_state())
     print("Delimiter here!")
-    render(brd.assign_random_state())
+    render(brd.next_board_state())
