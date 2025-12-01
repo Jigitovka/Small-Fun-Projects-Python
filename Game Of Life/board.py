@@ -35,14 +35,13 @@ class Board:
                             (-1, 0),            (1, 0),
                             (-1, 1),   (0, 1),  (1, 1))
         
-        for i in range(self.board_width):
-            for j in range(self.board_height):
-                # curr_cell = self.current_state[i][j]
+        for i in range(self.board_height):
+            for j in range(self.board_width):
                 live_neighbor_count = 0
                 for di,dj in neighbors_coords:
                     ni = i + di
                     nj = j + dj
-                    if 0 <= ni < self.board_width and 0 <= nj < self.board_height:
+                    if 0 <= ni < self.board_height and 0 <= nj < self.board_width:
                         if self.current_state[ni][nj] == 1:
                             live_neighbor_count += 1
                 if live_neighbor_count <= 1 or live_neighbor_count > 3:
