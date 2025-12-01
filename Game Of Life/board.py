@@ -56,8 +56,6 @@ class Board:
                         else:
                             new_state[i][j] = 1
         
-        print(self.current_state)
-
         self.current_state = new_state
         self.generation += 1
         return self.current_state
