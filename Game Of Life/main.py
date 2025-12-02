@@ -15,7 +15,7 @@ def render(board_param) -> None:
         print(row_str)
 
 if __name__ == "__main__":
-    brd = Board(50, 40)
+    brd = Board(30, 90)
     # Initialize the board by assigning a random state
     os.system('cls' if os.name == 'nt' else 'clear')
     brd.assign_random_state()
