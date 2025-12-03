@@ -5,9 +5,18 @@ from pathlib import Path
 ASSET_DIR_LOCATION = Path(Path(__file__).parents[1], 'assets')
 FILENAME = "sample.jpg"
 
+def data_to_2d(datalist, width):
+    final_arr = []
+
+    for i in range(0, len(datalist), width):
+        final_arr.append(list(datalist[i:i+width]))
+    
+    return final_arr
+
+
 # Actually, run here
 if __name__ == "__main__":
-    im = Image.open(Path(ASSET_DIR_LOCATION, FILENAME))
-    print("Successfully loaded image!")
-    print(f"{im.width} x {im.height}")
+    with Image.open(Path(ASSET_DIR_LOCATION, FILENAME)) as im:
+
+        img_matrix = data_to_2d(list(im.getdata()), im.width)
 
