@@ -4,11 +4,12 @@
 
 from PIL import Image
 from pathlib import Path
+from charmap import charmap
 
 
 ASSET_DIR_LOCATION = Path(Path(__file__).parents[1], 'assets')
-ASCII_CHARS = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
-FILENAME = "sample.jpg"
+FILENAME = "images.jpg"
+
 
 
 def data_to_2d(datalist, width):
@@ -48,8 +49,10 @@ if __name__ == "__main__":
         for pixel_row in img_matrix:
             for r, g, b in pixel_row:
                 lum_p = luminance(sRGBtoLinear(r), sRGBtoLinear(g), sRGBtoLinear(b))
-                pl_p = int(perceived_lightness(lum_p))
+                pl_p = round(perceived_lightness(lum_p), 4)
                 pl_matrix.append(pl_p)
         
         pl_matrix = data_to_2d(pl_matrix, im.width)
-
+        for row in pl_matrix:
+            mapped_row = [charmap(v) for v in row]
+            print("".join(mapped_row))
