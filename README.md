@@ -4,7 +4,7 @@ The main idea is to either completely not use, or use minimal AI help. If you ha
 
 ---
 
--[Game of Life](#Game Of Life)
+-[Game of Life](https://github.com/Jigitovka/Small-Fun-Projects-Python/tree/main/Game%20Of%20Life)
 
 ---
 
